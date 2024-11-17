@@ -1,0 +1,97 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import Header from './components/Header'
+import Hero from './components/Home/Hero'
+import {BrowserRouter, Routes, Route, createBrowserRouter, RouterProvider} from "react-router-dom"
+import ProductDetails from './components/ProductDetails'
+import Login from './components/Login'
+import Signup from './components/Signup'
+import NewPlant from './components/NewPlant'
+import MainLayout from './components/MainLayout'
+import About from './components/About'
+import YourPlants from './components/YourPlants'
+import EditPlant from './components/EditPlant'
+import YourOrders from './components/YourOrders'
+import SuccessMessage from './components/SucceessMsg'
+
+const browserRouter = createBrowserRouter([
+
+  {
+    path: "/",
+    element: <MainLayout />,
+    children:[
+      {
+        path: "/",
+        element: <Hero />
+      },
+      {
+        path: "/plant/:id",
+        element: <ProductDetails />
+      },
+      {
+        path: "/new_plant",
+        element: <NewPlant />
+      },
+      {
+        path: "/about",
+        element: <About />
+      },
+      {
+        path: "/my_plant",
+        element: <YourPlants />
+      },
+      {
+        path: "/:id/edit_plant",
+        element: <EditPlant />
+      },
+      {
+        path: "/orders",
+        element: <YourOrders />
+      },
+      {
+        path: "/success",
+        element: <SuccessMessage />
+      }
+    ]
+  },
+  {
+    path:"/login",
+    element:<Login />
+  },
+  {
+    path:"/signup",
+    element:<Signup />
+  }
+
+
+])
+
+function App() {
+
+  
+  
+
+  return (
+   <>
+
+   <RouterProvider router={browserRouter} />
+
+   {/* <BrowserRouter>
+   <Routes>
+    <Route path='/' element={<Hero />} />
+    <Route path='/plant/:id' element={<ProductDetails />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/signup" element={<Signup />} />
+    <Route path="/new_plant" element={<NewPlant />} />
+   </Routes>
+   </BrowserRouter> */}
+   
+   
+   </>
+   
+  )
+}
+
+export default App
