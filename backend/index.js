@@ -22,7 +22,7 @@ const PORT = 3001;
 // }
 
 const corsOption = {
-  origin:"https://plant-nine-ochre.vercel.app/",
+  origin:"https://plant-nine-ochre.vercel.app",
   credentials:true,
 }
 
