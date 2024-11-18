@@ -1,10 +1,10 @@
-import express, { urlencoded } from "express"
+import express, { urlencoded } from "express";
 import cookieParser from "cookie-parser";
-import cors from "cors"
+import cors from "cors";
 import connecttoDB from "./db.js";
-import userRoute from "./routes/user.route.js"
-import buyandcart from "./routes/buyandcart.controller.js"
-import plantRoute from "./routes/plant.route.js"
+import userRoute from "./routes/user.route.js";
+import buyandcart from "./routes/buyandcart.controller.js";
+import plantRoute from "./routes/plant.route.js";
 import dotenv from "dotenv";
 dotenv.config({});
 
@@ -12,37 +12,44 @@ const app = express();
 
 const PORT = 3001;
 
-// app.use(express.json());
-// app.use(cookieParser());
-// app.use(urlencoded({extended:true})); 
+// Allowed Origins
+const allowedOrigins = [
+  "http://localhost:5173",                // Local Development Frontend
+  "https://plant-nine-ochre.vercel.app",  // Production Frontend
+];
 
-// const corsOption = {
-//   origin:"http://localhost:5173",
-//   credentials:true,
-// }
+// Dynamic CORS Options
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true); // Allow the request
+    } else {
+      callback(new Error("Not allowed by CORS")); // Block the request
+    }
+  },
+  credentials: true, // Allow cookies and credentials
+};
 
-const corsOption = {
-  origin:"https://plant-nine-ochre.vercel.app",
-  credentials:true,
-}
-
-app.use(cors(corsOption));
+app.use(cors(corsOptions)); // Use updated CORS settings
 app.use(express.json());
 app.use(cookieParser());
-app.use(urlencoded({extended:true})); 
- 
+app.use(urlencoded({ extended: true }));
+
+// Root Route
 app.get("/", (req, res) => {
   return res.status(200).json({
-       mesaage: "i am coming from backend",
-       success:true,
-   })
-})
-
-app.use("/api/v1/users", userRoute);
-app.use("/api/v1/plant", plantRoute)
-app.use("/api/v1/buy_or_cart",buyandcart)
-
-app.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}`);
-    connecttoDB()
+    message: "i am coming from backend",
+    success: true,
   });
+});
+
+// Routes
+app.use("/api/v1/users", userRoute);
+app.use("/api/v1/plant", plantRoute);
+app.use("/api/v1/buy_or_cart", buyandcart);
+
+// Start Server
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
+  connecttoDB();
+});
