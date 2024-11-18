@@ -12,9 +12,9 @@ const app = express();
 
 const PORT = 3001;
 
-// app.use(express.json());
-// app.use(cookieParser());
-// app.use(urlencoded({extended:true})); 
+app.use(express.json());
+app.use(cookieParser());
+app.use(urlencoded({extended:true})); 
 
 // const corsOption = {
 //   origin:"http://localhost:5173",
