@@ -17,8 +17,8 @@ const ProductDetails = () => {
   const {buyPlant} = useBuyPlant(plant._id)
 
   const buyHandler = () => {
-    buyPlant()
-    navigate("/success")
+   
+    navigate("/payment")
   }
 
   return (

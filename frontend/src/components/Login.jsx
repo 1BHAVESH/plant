@@ -9,6 +9,7 @@ import { Loader2 } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/userSlice.js";
 import { setCart } from "../redux/cartSlice.js";
+import { setOrder, setOrders } from "@/redux/ordersSlice";
 // import { setAuthUser } from "./../../redux/authSlice";
  
 function Login() {
@@ -46,6 +47,7 @@ function Login() {
       if (res.data.success) {
         dispatch(setUser(res.data.findUser))
         dispatch(setCart(res.data.findUser.cart))
+        dispatch(setOrders(res.data.findUser.orders))
         navigate("/")
         toast.success(res.data.message, {
           position: "top-center", // position: top, top-left, top-right can also be used.

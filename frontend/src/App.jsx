@@ -15,6 +15,7 @@ import YourPlants from './components/YourPlants'
 import EditPlant from './components/EditPlant'
 import YourOrders from './components/YourOrders'
 import SuccessMessage from './components/SucceessMsg'
+import PaymentForm from './components/Payment'
 
 const browserRouter = createBrowserRouter([
 
@@ -53,6 +54,10 @@ const browserRouter = createBrowserRouter([
       {
         path: "/success",
         element: <SuccessMessage />
+      },
+      {
+        path: "/payment",
+        element: <PaymentForm />
       }
     ]
   },

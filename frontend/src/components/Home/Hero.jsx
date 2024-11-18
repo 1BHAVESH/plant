@@ -13,8 +13,9 @@ const Hero = () => {
   const dispatch = useDispatch();
   useGetAllPlants();
   const { plants } = useSelector((store) => store.plants);
+  const {user} = useSelector(store => store.user)
 
-  console.log(plants);
+  // console.log(plants);
 
   dispatch(setOrder(false))
   dispatch(setOwnPlansts([]));
@@ -34,9 +35,9 @@ const Hero = () => {
 
         {/* Content Column */}
         <div className="md:w-1/2 mt-5 md:mt-0 ml-10 border-l-8 border-l-yellow-500 flex flex-col justify-center p-4 text-center md:text-left space-y-6">
-          <h2 className="text-2xl font-semibold text-yellow-400 flex items-center justify-center md:justify-start">
+          <h2 className="text-2xl font-semibold text-black flex items-center justify-center md:justify-start">
             <FaMinus className="inline text-yellow-400 mb-2 mr-2" />
-            Welcome back!
+            Welcome {user?.name}!
           </h2>
           <h1 className="text-6xl md:text-7xl font-extrabold text-green-800 flex items-center justify-center md:justify-start space-x-4">
             <span>Plant Seller</span>

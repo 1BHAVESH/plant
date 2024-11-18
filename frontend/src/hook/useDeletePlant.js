@@ -15,21 +15,21 @@ export const useDeletePlant = (id) => {
     const {plants} = useSelector(store => store.plants)
 
 
-    console.log(OwnPlant)
+    // console.log(OwnPlant)
     
 
     const deletePlant = async () => {
         try {
-            console.log(id);
+            // console.log(id);
 
             const res = await axios.delete(`http://localhost:3001/api/v1/plant/${id}/delete`, { withCredentials: true });
 
-            console.log(res);
+            // console.log(res);
 
             if(res.data.success){
                 const updatedPlants = OwnPlant.filter((item) => item._id !== id)
 
-                console.log(updatedPlants)
+                // console.log(updatedPlants)
 
                 dispatch(setOwnPlansts(updatedPlants))
                 dispatch(setPlants(updatedPlants))

@@ -22,8 +22,8 @@ const YourOrders = () => {
           {orders &&
             orders.map((plant) => (
               <ProductCard
-                key={plant._id}
-                id={plant._id}
+                key={plant?._id}
+                id={plant?._id}
                 image={plant?.image}
                 originalPrice={plant?.price}
                 name={plant?.pname}
