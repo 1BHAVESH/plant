@@ -12,7 +12,9 @@ export const useRemoveFromCart = (id) => {
         try {
             console.log(id);
 
-            const res = await axios.get(`http://localhost:3001/api/v1/buy_or_cart/${id}/remove_from_cart`, { withCredentials: true });
+            // const res = await axios.get(`http://localhost:3001/api/v1/buy_or_cart/${id}/remove_from_cart`, { withCredentials: true });
+
+              const res = await axios.get(`https://plant-2yxz.onrender.com/api/v1/buy_or_cart/${id}/remove_from_cart`, { withCredentials: true });
 
             console.log(res);
 

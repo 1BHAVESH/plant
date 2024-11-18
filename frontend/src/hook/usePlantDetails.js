@@ -14,7 +14,9 @@ export const useplantData = (id) => {
             console.log(id)
             try {
                 console.log(id)
-                const response = await axios.get(`http://localhost:3001/api/v1/plant/${id}/plant_detail`, {withCredentials: true});
+                // const response = await axios.get(`http://localhost:3001/api/v1/plant/${id}/plant_detail`, {withCredentials: true});
+
+                const response = await axios.get(`https://plant-2yxz.onrender.com/api/v1/plant/${id}/plant_detail`, {withCredentials: true});
                 
                 console.log(response)
                 dispatch(setPlantInfo(response.data.plant))

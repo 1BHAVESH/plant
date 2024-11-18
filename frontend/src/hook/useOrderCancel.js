@@ -10,7 +10,9 @@ export  const useOrderCancel = (id) => {
    const cancelOrder = async() => {
     try {
 
-        const res = await axios.get(`http://localhost:3001/api/v1/buy_or_cart/${id}/cancel_order`, {withCredentials: true})
+        // const res = await axios.get(`http://localhost:3001/api/v1/buy_or_cart/${id}/cancel_order`, {withCredentials: true})
+
+        const res = await axios.get(`https://plant-2yxz.onrender.com/api/v1/buy_or_cart/${id}/cancel_order`, {withCredentials: true})
     
     //orders
           

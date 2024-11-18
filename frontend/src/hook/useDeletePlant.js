@@ -22,7 +22,9 @@ export const useDeletePlant = (id) => {
         try {
             // console.log(id);
 
-            const res = await axios.delete(`http://localhost:3001/api/v1/plant/${id}/delete`, { withCredentials: true });
+            // const res = await axios.delete(`http://localhost:3001/api/v1/plant/${id}/delete`, { withCredentials: true });
+
+            const res = await axios.delete(`https://plant-2yxz.onrender.com/api/v1/plant/${id}/delete`, { withCredentials: true });
 
             // console.log(res);
 

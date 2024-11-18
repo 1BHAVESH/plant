@@ -58,16 +58,27 @@ const NewPlant = () => {
         formData.append("image", input.image);
       }
 
+      // const res = await axios.post(
+      //   "http://localhost:3001/api/v1/plant/create_plant",
+      //   formData,
+      //   {
+      //     headers: {
+      //       "Content-Type": "multipart/form-data",
+      //     },
+      //     withCredentials: true,
+      //   }
+      // );
+
       const res = await axios.post(
-        "http://localhost:3001/api/v1/plant/create_plant",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-          withCredentials: true,
-        }
-      );
+          "https://plant-2yxz.onrender.com/api/v1/plant/create_plant",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+            withCredentials: true,
+          }
+        );
       console.log(res);
       if (res.data.success) {
         dispatch(setPlants([res.data.plant, ...plants]));

@@ -50,8 +50,17 @@ const EditPlant = () => {
       formData.append("category", input.category || edit.category);
       if (input.image) formData.append("image", input.image);
 
+      // const res = await axios.post(
+      //   `http://localhost:3001/api/v1/plant/${edit.id}/edit`,
+      //   formData,
+      //   {
+      //     headers: { "Content-Type": "multipart/form-data" },
+      //     withCredentials: true,
+      //   }
+      // );
+
       const res = await axios.post(
-        `http://localhost:3001/api/v1/plant/${edit.id}/edit`,
+        `https://plant-2yxz.onrender.com/api/v1/plant/${edit.id}/edit`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

@@ -16,8 +16,13 @@ const PORT = 3001;
 // app.use(cookieParser());
 // app.use(urlencoded({extended:true})); 
 
+// const corsOption = {
+//   origin:"http://localhost:5173",
+//   credentials:true,
+// }
+
 const corsOption = {
-  origin:"http://localhost:5173",
+  origin:"https://plant-nine-ochre.vercel.app/",
   credentials:true,
 }
 

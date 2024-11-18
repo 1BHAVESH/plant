@@ -10,7 +10,9 @@ export  const useBuyPlant = (id) => {
    const buyPlant = async() => {
     try {
 
-        const res = await axios.get(`http://localhost:3001/api/v1/buy_or_cart/${id}/plant_buy`, {withCredentials: true})
+        // const res = await axios.get(`http://localhost:3001/api/v1/buy_or_cart/${id}/plant_buy`, {withCredentials: true})
+
+         const res = await axios.get(`https://plant-2yxz.onrender.com/api/v1/buy_or_cart/${id}/plant_buy`, {withCredentials: true})
     
     //orders
           

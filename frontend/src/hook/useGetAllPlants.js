@@ -13,8 +13,9 @@ export const useGetAllPlants = () => {
 
             try {
 
-                const res = await axios.get("http://localhost:3001/api/v1/plant/plants", {withCredentials: true})
-
+                // const res = await axios.get("http://localhost:3001/api/v1/plant/plants", {withCredentials: true})
+                 const res = await axios.get("https://plant-2yxz.onrender.com/api/v1/plant/plants", {withCredentials: true})
+                
                 if(res.data.success){
 
                     console.log(res)
