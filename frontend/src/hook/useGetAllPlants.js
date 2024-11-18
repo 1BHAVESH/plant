@@ -49,7 +49,7 @@ export const useGetAllPlants = () => {
             try {
 
                 // const res = await axios.get("http://localhost:3001/api/v1/plant/plants", {withCredentials: true})
-                 const res = await axios.get( `${import.meta.env.VITE_BACKEND_URL}/api/v1/plant/plants`, {withCredentials: true})
+                 const res = await axios.get( `https://plant-nine-ochre.vercel.app/api/v1/plant/plants`, {withCredentials: true})
                 
                 if(res.data.success){
 
