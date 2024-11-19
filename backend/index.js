@@ -15,7 +15,7 @@ const PORT = 3001;
 // Allowed Origins
 const allowedOrigins = [
   "http://localhost:5173",                // Local Development Frontend
-  "https://plant-nine-ochre.vercel.app",  // Production Frontend
+  "https://plant-wpdb.vercel.app/",  // Production Frontend
 ];
 
 // Dynamic CORS Options
